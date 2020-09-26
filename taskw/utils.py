@@ -128,8 +128,8 @@ def encode_task_experimental(task):
     """
     # First, clean the task:
     task = task.copy()
-    if 'tags' in task:
-        task['tags'] = ','.join(task['tags'])
+    #if 'tags' in task:
+        #task['tags'] = ','.join(task['tags'])
     for k in task:
         task[k] = encode_task_value(k, task[k])
 

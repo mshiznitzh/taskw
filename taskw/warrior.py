@@ -67,6 +67,11 @@ class TaskWarriorBase(with_metaclass(abc.ABCMeta, object)):
             raise NotImplementedError(
                 "You must use TaskWarriorShellout to use 'config_overrides'"
             )
+    def __enter__(self): return self
+
+    def __exit__(self, type, value, traceback):
+        # Exception handling here
+        close(self.fd)
 
     def _stub_task(self, description, tags=None, **kw):
         """ Given a description, stub out a task dict. """
